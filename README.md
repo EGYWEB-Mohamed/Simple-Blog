@@ -11,12 +11,14 @@ This is a simple blog project built with PHP, Laravel Framework, Laravel Filamen
 - Tailwind version 3.3
 
 ## Features
-
-- Users can create a new blog post by filling out a form.
-- Users can view all blog posts on the homepage.
-- Users can edit and delete their own blog posts.
-- Admin users can manage all blog posts.
-- All blog posts are stored in a MySQL database.
+- Multiple role & permission
+- Admin
+  - can ( Create & Read & Update & Delete ) posts
+  - can ( Create & Read & Update & Delete ) users
+  - can ( Create & Read & Update & Delete ) categories
+  - can ( Create & Read & Update & Delete ) role
+- Client
+  - can ( Create & Read & Update & Delete ) his posts
 
 ## Installation
 
