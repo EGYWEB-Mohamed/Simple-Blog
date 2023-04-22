@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-
+use App\Models\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class PostPolicy
 {
     use HandlesAuthorization;
 
@@ -18,18 +18,19 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_user');
+        return $user->can('view_any_post');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Post $post)
     {
-        return $user->can('view_user');
+        return $user->can('view_post');
     }
 
     /**
@@ -40,29 +41,31 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_user');
+        return $user->can('create_post');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user)
+    public function update(User $user, Post $post)
     {
-        return $user->can('update_user');
+        return $user->can('update_post');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user)
+    public function delete(User $user, Post $post)
     {
-        return $user->can('delete_user');
+        return $user->can('delete_post');
     }
 
     /**
@@ -73,18 +76,19 @@ class UserPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_user');
+        return $user->can('delete_any_post');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Post $post)
     {
-        return $user->can('force_delete_user');
+        return $user->can('force_delete_post');
     }
 
     /**
@@ -95,18 +99,19 @@ class UserPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_user');
+        return $user->can('force_delete_any_post');
     }
 
     /**
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user)
+    public function restore(User $user, Post $post)
     {
-        return $user->can('restore_user');
+        return $user->can('restore_post');
     }
 
     /**
@@ -117,18 +122,19 @@ class UserPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_user');
+        return $user->can('restore_any_post');
     }
 
     /**
-     * Determine whether the user can bulk restore.
+     * Determine whether the user can replicate.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user)
+    public function replicate(User $user, Post $post)
     {
-        return $user->can('replicate_user');
+        return $user->can('replicate_post');
     }
 
     /**
@@ -139,6 +145,7 @@ class UserPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_user');
+        return $user->can('reorder_post');
     }
+
 }

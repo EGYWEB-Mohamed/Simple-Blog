@@ -3,9 +3,8 @@
 namespace App\Policies;
 
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Illuminate\Auth\Access\Response;
 use Spatie\Permission\Models\Role;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RolePolicy
 {
@@ -14,8 +13,8 @@ class RolePolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function viewAny(User $user)
     {
@@ -25,11 +24,11 @@ class RolePolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user,Role $role)
+    public function view(User $user, Role $role)
     {
         return $user->can('view_role');
     }
@@ -37,8 +36,8 @@ class RolePolicy
     /**
      * Determine whether the user can create models.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function create(User $user)
     {
@@ -48,11 +47,11 @@ class RolePolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user,Role $role)
+    public function update(User $user, Role $role)
     {
         return $user->can('update_role');
     }
@@ -60,11 +59,11 @@ class RolePolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user,Role $role)
+    public function delete(User $user, Role $role)
     {
         return $user->can('delete_role');
     }
@@ -72,8 +71,8 @@ class RolePolicy
     /**
      * Determine whether the user can bulk delete.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function deleteAny(User $user)
     {
@@ -83,11 +82,11 @@ class RolePolicy
     /**
      * Determine whether the user can permanently delete.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user,Role $role)
+    public function forceDelete(User $user, Role $role)
     {
         return $user->can('{{ ForceDelete }}');
     }
@@ -95,8 +94,8 @@ class RolePolicy
     /**
      * Determine whether the user can permanently bulk delete.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDeleteAny(User $user)
     {
@@ -106,11 +105,11 @@ class RolePolicy
     /**
      * Determine whether the user can restore.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user,Role $role)
+    public function restore(User $user, Role $role)
     {
         return $user->can('{{ Restore }}');
     }
@@ -118,8 +117,8 @@ class RolePolicy
     /**
      * Determine whether the user can bulk restore.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restoreAny(User $user)
     {
@@ -129,11 +128,11 @@ class RolePolicy
     /**
      * Determine whether the user can replicate.
      *
-     * @param  User  $user
-     * @param  Role  $role
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @param  \Spatie\Permission\Models\Role  $role
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user,Role $role)
+    public function replicate(User $user, Role $role)
     {
         return $user->can('{{ Replicate }}');
     }
@@ -141,8 +140,8 @@ class RolePolicy
     /**
      * Determine whether the user can reorder.
      *
-     * @param  User  $user
-     * @return Response|bool
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
     public function reorder(User $user)
     {

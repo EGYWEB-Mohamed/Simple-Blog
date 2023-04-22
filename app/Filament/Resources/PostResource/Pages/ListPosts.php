@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Filters\Layout;
 
 class ListPosts extends ListRecords
 {
@@ -15,5 +16,14 @@ class ListPosts extends ListRecords
         return [
             Actions\CreateAction::make(),
         ];
+    }
+    protected function getTableFiltersFormColumns(): int|array
+    {
+        return '2';
+    }
+
+    protected function getTableFiltersLayout(): ?string
+    {
+        return Layout::Popover;
     }
 }
