@@ -3,10 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
-use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
-use BezhanSalleh\FilamentShield\Traits\HasFilamentShield;
 use Exception;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -21,14 +18,16 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+
     protected static ?string $recordTitleAttribute = 'title';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Grid::make(1)->schema([
-                    Forms\Components\TextInput::make('title')->columns(1)
-                ])
+                    Forms\Components\TextInput::make('title')->columns(1),
+                ]),
             ]);
     }
 
@@ -40,7 +39,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\BadgeColumn::make('posts_count')->counts('posts')->sortable()
+                Tables\Columns\BadgeColumn::make('posts_count')->counts('posts')->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -80,5 +79,4 @@ class CategoryResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
-
 }

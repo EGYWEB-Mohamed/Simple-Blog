@@ -17,6 +17,7 @@ class ListPosts extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+
     protected function getTableFiltersFormColumns(): int|array
     {
         return '2';

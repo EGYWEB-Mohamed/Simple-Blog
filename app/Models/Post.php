@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\UserIdScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,8 +17,13 @@ class Post extends Model
         'category_id',
         'image',
         'title',
-        'body'
+        'body',
     ];
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new UserIdScope);
+    }
 
     public function user(): BelongsTo
     {
