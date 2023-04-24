@@ -10,7 +10,7 @@ class UserIdScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        if (auth()->user()->hasRole('client')) {
+        if (auth()->check() and auth()->user()->hasRole('client')) {
             $builder->where('user_id', auth()->id());
         }
     }
