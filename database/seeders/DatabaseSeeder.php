@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Artisan::call('shield:generate --all');
+        Artisan::call('db:seed --class=ShieldSeeder');
+         $admin = \App\Models\User::factory()->create([
+             'name' => 'Admin',
+             'email' => 'admin@test.com',
+         ]);
+         $admin->assignRole('super_admin');
+         Post::factory()->count(100)->create();
     }
 }

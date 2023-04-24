@@ -7,6 +7,7 @@ This is a simple blog project built with PHP, Laravel Framework, Laravel Filamen
 - PHP version 8.2
 - MySQL version 8.0
 - Laravel Framework version 10.8
+- Livewire version 2.x
 - Laravel Filament version 2.x
 - Tailwind version 3.3
 
@@ -26,8 +27,10 @@ This is a simple blog project built with PHP, Laravel Framework, Laravel Filamen
 2. Run `composer install` to install the required packages.
 3. Configure your database settings in the `.env` file.
 4. Run `php artisan migrate` to migrate the database schema.
-5. Run `php artisan serve` to start the development server.
-6. Visit `http://localhost:8000` to view the application.
+5. Run `php artisan db:seed` to seed DB With Fake Date.
+   - Admin Account : ( admin@test.com | 123456789 )
+6. Run `php artisan serve` to start the development server.
+7. Visit `http://localhost:8000` to view the application.
 
 ## Contributing
 
